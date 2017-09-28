@@ -3,21 +3,41 @@ using System.Collections;
 
 public class characterController : MonoBehaviour
 {
-	public float maxSpeed = 10f;
-	public float move;
+	public float maxSpeed = 10;
+    public float jumpForce = 400;
 
-	void Start()
+    private float speed;
+    private bool isOnGround = false;
+
+	private void Start()
 	{
 
-	}
+    }
 
-	void Update()
-	{
-		Move();
-	}
+    /**
+     * Âûחûגאועסÿ םא ךאזהûי פנויל
+     */
+    private void FixedUpdate()
+    {
+        this.speed = Input.GetAxisRaw("Horizontal");
+    }
 
-	private static void Move()
+    private void Update()
+    {
+        HorizontalMove();
+        Jump();
+    }
+
+	private void HorizontalMove()
 	{
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
-	}
+        GetComponent<Rigidbody2D>().velocity = new Vector2(this.speed * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+    }
+
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(1, this.jumpForce));
+        }
+    }
 }
