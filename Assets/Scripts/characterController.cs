@@ -13,7 +13,7 @@ public class characterController : MonoBehaviour
     public int heals = 1;
 
     private float speed;
-    private float groundRadius = 0.2;
+    private float groundRadius = 0.2f;
     private bool isPause = false;
     private bool isOnGround = false;
 
@@ -49,7 +49,7 @@ public class characterController : MonoBehaviour
 
     private void Jump()
     {
-        if (this.isOnGround && isJumpKeyDown()) {
+        if (this.isOnGround && IsJumpKeyDown()) {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(1, this.jumpForce));
         }
     }
@@ -79,7 +79,7 @@ public class characterController : MonoBehaviour
 
     private bool IsPauseKeyDown()
     {
-        return Input.GetKeyDown(KeyCode.ESC);
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 
     private bool IsJumpKeyDown()
