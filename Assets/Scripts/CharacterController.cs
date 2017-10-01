@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class characterController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public Transform groundCheck;
     public LayerMask whatIsGround;
@@ -31,7 +31,7 @@ public class characterController : MonoBehaviour
                 this.groundCheck.position,
                 this.groundRadius,
                 this.whatIsGround
-            );//is work?
+            );
         this.speed = Input.GetAxisRaw("Horizontal");
     }
 
