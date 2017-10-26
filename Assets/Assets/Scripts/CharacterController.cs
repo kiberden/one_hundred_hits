@@ -17,9 +17,13 @@ public class CharacterController : MonoBehaviour
     private bool isPause = false;
     private bool isOnGround = false;
 
+	//Анимация
+	Animator anim;
+
 	private void Start()
 	{
-
+		// для анимации, но это как обычно
+		anim = GetComponent<Animator>();
     }
 
     /**
@@ -27,13 +31,15 @@ public class CharacterController : MonoBehaviour
      */
     private void FixedUpdate()
     {
+
         this.isOnGround = Physics2D.OverlapCircle(
                 this.groundCheck.position,
                 this.groundRadius,
                 this.whatIsGround
             );
         this.speed = Input.GetAxisRaw("Horizontal");
-    }
+
+	}
 
     private void Update()
     {
@@ -45,7 +51,12 @@ public class CharacterController : MonoBehaviour
 	private void HorizontalMove()
 	{
         GetComponent<Rigidbody2D>().velocity = new Vector2(this.speed * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-    }
+    
+	
+	
+	}
+
+
 
     private void Jump()
     {
