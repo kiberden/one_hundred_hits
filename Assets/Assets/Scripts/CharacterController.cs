@@ -48,8 +48,6 @@ public class CharacterController : MonoBehaviour
         Pause();
 
         FlipHero();
-        Debug.Log(transform.localScale);
-        Debug.Break();
     }
 
     private void FlipHero()
