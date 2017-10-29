@@ -1,6 +1,14 @@
 ﻿<Properties StartupItem="1.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Scripts\CharacterController.cs">
+    <Files>
+      <File FileName="Assets\Assets\Scripts\CharacterController.cs" Line="45" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> 84a00894b568a63b8d8d523ffd37b931571c8561
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
