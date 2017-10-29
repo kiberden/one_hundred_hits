@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Assets\Scripts\CharacterController.cs" />
+    <Compile Include="Assets\Assets\Scripts\ParallaxController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
