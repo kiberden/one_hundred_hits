@@ -1222,6 +1222,7 @@ GameObject:
   - component: {fileID: 928735790}
   - component: {fileID: 928735789}
   - component: {fileID: 928735794}
+  - component: {fileID: 928735795}
   m_Layer: 0
   m_Name: 2D Camera
   m_TagString: MainCamera
@@ -1318,6 +1319,36 @@ MonoBehaviour:
   XMaxValue: 0
   XMinEnabled: 0
   XMinValue: 0
+--- !u!114 &928735795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928735788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3589cd2b0f7b5442906e9873afb9c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgrounds:
+  - {fileID: 174433355}
+  - {fileID: 1878936410}
+  - {fileID: 612399697}
+  - {fileID: 1788829823}
+  - {fileID: 1923240499}
+  - {fileID: 2072733976}
+  - {fileID: 862146247}
+  - {fileID: 1336681517}
+  - {fileID: 598569389}
+  - {fileID: 1433745632}
+  - {fileID: 357466578}
+  - {fileID: 1664430081}
+  - {fileID: 786053969}
+  - {fileID: 1848102593}
+  - {fileID: 630015539}
+  - {fileID: 1322376578}
+  - {fileID: 260607295}
+  smoothing: 1
 --- !u!1001 &1086946685
 Prefab:
   m_ObjectHideFlags: 0
