@@ -38,11 +38,12 @@ public class CharacterController : MonoBehaviour
                 this.whatIsGround
             );
         this.speed = Input.GetAxisRaw("Horizontal");
-
 	}
 
     private void Update()
     {
+        this.anim.SetFloat("Speed", Mathf.Abs(this.speed));
+
         HorizontalMove();
         Jump();
         Pause();
