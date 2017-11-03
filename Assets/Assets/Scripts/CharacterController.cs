@@ -16,10 +16,15 @@ public class CharacterController : MonoBehaviour
     private float groundRadius = 0.2f;
     private bool isPause = false;
     private bool isOnGround = false;
+    private bool isShowRight = true;
+
+	//Анимация
+	Animator anim;
 
 	private void Start()
 	{
-
+		// для анимации, но это как обычно
+		this.anim = GetComponent<Animator>();
     }
 
     /**
@@ -33,18 +38,38 @@ public class CharacterController : MonoBehaviour
                 this.whatIsGround
             );
         this.speed = Input.GetAxisRaw("Horizontal");
-    }
+
+	}
 
     private void Update()
     {
         HorizontalMove();
         Jump();
         Pause();
+
+        FlipHero();
+    }
+
+    private void FlipHero()
+    {
+        if (this.speed > 0 && !this.isShowRight) {
+            Flip(true);
+        } else if (this.speed < 0 && this.isShowRight) {
+            Flip(false);
+        }
+    }
+
+    private void Flip(bool flipOnRight)
+    {
+        this.isShowRight = flipOnRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
 	private void HorizontalMove()
 	{
-        GetComponent<Rigidbody2D>().velocity = new Vector2(this.speed * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(this.speed * this.maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     private void Jump()
