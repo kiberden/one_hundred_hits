@@ -12,15 +12,15 @@ public class ParallaxController : MonoBehaviour
     private Vector3 previousCamPos;
 
     // Use this for initialization
-    void Start()
+    void Start ()
     {
         cam = Camera.main.transform;
 
         previousCamPos = cam.position;
 
         parallaxScale = new float[backgrounds.Length];
-        for (int i = 0; i < parallaxScale.Length; i++)
-        {
+
+        for (int i = 0; i < parallaxScale.Length; i++) {
             parallaxScale[i] = backgrounds[i].position.z * -1;
         }
     }
@@ -28,8 +28,7 @@ public class ParallaxController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        for (int i = 0; i < backgrounds.Length; i++)
-        {
+        for (int i = 0; i < backgrounds.Length; i++) {
             float parallax = (previousCamPos.x - cam.position.x) * parallaxScale[i];
 
             float backgroundsTargetPosX = (backgrounds[i].position.x + parallax);
@@ -39,6 +38,5 @@ public class ParallaxController : MonoBehaviour
         }
 
         previousCamPos = cam.position;
-
     }
 }
