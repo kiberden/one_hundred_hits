@@ -21,6 +21,7 @@ TextureImporter:
     21300028: "\u041B\u0435\u0441_14"
     21300030: "\u041B\u0435\u0441_15"
     21300032: "\u041B\u0435\u0441_16"
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -29,6 +30,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -44,10 +47,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 0
     aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -57,7 +63,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
@@ -69,6 +75,7 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -77,6 +84,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -85,6 +93,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -93,6 +102,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -114,6 +124,7 @@ TextureImporter:
       pivot: {x: 0.49558684, y: -0.001167655}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_1"
@@ -127,6 +138,7 @@ TextureImporter:
       pivot: {x: 0.5138811, y: 0.008827767}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_2"
@@ -140,6 +152,7 @@ TextureImporter:
       pivot: {x: 0.49639907, y: -0.0011314175}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_3"
@@ -153,6 +166,7 @@ TextureImporter:
       pivot: {x: 0.5, y: -0.0000114253}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_4"
@@ -166,6 +180,7 @@ TextureImporter:
       pivot: {x: 0.49999958, y: -0.0018889759}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_5"
@@ -179,6 +194,7 @@ TextureImporter:
       pivot: {x: 0.4935298, y: 0.00688324}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_6"
@@ -192,6 +208,7 @@ TextureImporter:
       pivot: {x: 0.51168364, y: 0.0040365434}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_7"
@@ -205,6 +222,7 @@ TextureImporter:
       pivot: {x: 0.48823172, y: 0.045270182}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_8"
@@ -218,6 +236,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.028506372}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_9"
@@ -231,6 +250,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.02528217}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_10"
@@ -244,6 +264,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.057082437}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_11"
@@ -257,6 +278,7 @@ TextureImporter:
       pivot: {x: 0.49999946, y: 0.16399305}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_12"
@@ -270,6 +292,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.007867986}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_13"
@@ -283,6 +306,7 @@ TextureImporter:
       pivot: {x: 0.51278734, y: 0.02467216}
       border: {x: 18, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_14"
@@ -296,6 +320,7 @@ TextureImporter:
       pivot: {x: 0.49999973, y: -0.0010327279}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_15"
@@ -309,6 +334,7 @@ TextureImporter:
       pivot: {x: 0.4791784, y: 0.051990204}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: "\u041B\u0435\u0441_16"
@@ -322,8 +348,10 @@ TextureImporter:
       pivot: {x: 0.50000095, y: 0.0627594}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
