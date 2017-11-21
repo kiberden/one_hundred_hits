@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +19,7 @@ public class ParallaxController : MonoBehaviour
         previousCamPos = cam.position;
 
         parallaxScale = new float[backgrounds.Length];
+
         for (int i = 0; i < parallaxScale.Length; i++) {
             parallaxScale[i] = backgrounds[i].position.z * -1;
         }
@@ -37,6 +38,5 @@ public class ParallaxController : MonoBehaviour
         }
 
         previousCamPos = cam.position;
-
     }
 }

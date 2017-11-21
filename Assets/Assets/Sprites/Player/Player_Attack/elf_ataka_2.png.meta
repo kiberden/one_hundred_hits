@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: e89589b678a7d8d4db19be4c9c242a1f
-timeCreated: 1509474944
+guid: c443dd9bf1cb06c4b933b8b00ef74e1e
+timeCreated: 1509806171
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "\u04313_0"
+    21300000: elf_ataka_2_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -33,11 +33,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -49,7 +49,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 68
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -97,15 +97,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u04313_0"
+      name: elf_ataka_2_0
       rect:
         serializedVersion: 2
         x: 24
         y: 22
-        width: 33
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 53
+        height: 55
+      alignment: 9
+      pivot: {x: 0.31712508, y: -0.0005811518}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
