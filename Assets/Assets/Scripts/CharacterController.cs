@@ -5,26 +5,25 @@ public class CharacterController : MonoBehaviour
 {
     public Transform groundCheck;
     public LayerMask whatIsGround;
-
-    public float attackSpeed = 1;
-    public float jumpForce = 400;
+    
+    public float jumpForce = 650;
     public float maxSpeed = 10;
     public int damage = 1;
-    public int heals = 1;
+    public int heals = 5;
 
     private float speed;
     private float groundRadius = 0.2f;
     private bool isPause = false;
     private bool isOnGround = false;
     private bool isShowRight = true;
+    
+    private BoxCollider2D weapon;
+    private Animator anim; //Анимация
 
-	//Анимация
-	Animator anim;
-
-	private void Start()
+    private void Start()
 	{
-		// для анимации, но это как обычно
-		this.anim = GetComponent<Animator>();
+		this.anim = GetComponent<Animator>();// для анимации, но это как обычно
+        this.weapon = GameObject.Find("/hero/Sword/").GetComponent<BoxCollider2D>();
     }
 
     /**
@@ -45,10 +44,12 @@ public class CharacterController : MonoBehaviour
         this.anim.SetFloat("Speed", Mathf.Abs(this.speed));
 
         HorizontalMove();
+        Attack();
         Jump();
         Pause();
 
         FlipHero();
+        Attack();
     }
 
     private void FlipHero()
@@ -57,6 +58,13 @@ public class CharacterController : MonoBehaviour
             Flip(true);
         } else if (this.speed < 0 && this.isShowRight) {
             Flip(false);
+        }
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack")) {
+            this.StartAttackTrigger();
         }
     }
 
@@ -111,5 +119,17 @@ public class CharacterController : MonoBehaviour
     private bool IsJumpKeyDown()
     {
         return (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow));
+    }
+
+    private void StartAttackTrigger()
+    {
+        this.weapon.enabled = true;
+        this.anim.SetTrigger("Attack");
+    }
+
+    private void CompleteAttackTrigger()
+    {
+        this.weapon.enabled = false;
+        this.anim.ResetTrigger("Attack");
     }
 }

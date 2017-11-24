@@ -22,18 +22,28 @@ public class CameraController : MonoBehaviour
 	public bool XMinEnabled = false;
 	public float XMinValue = 0;
 
-	void FixedUpdate()
+    public float offsetY = 1.5f;
+    public float TARGRT_Y = 0f;
+    public float MIN_Y = 0f;
+    public float RESULT_Y = 0f;
+
+    void FixedUpdate()
 	{
-		Vector3 targetPos = target.position; 
+		Vector3 targetPos = target.position;
 
-		if (YMinEnabled && YMaxEnabled)
-			targetPos.y = Mathf.Clamp(target.position.y, YMinValue, YMaxValue);
+        /*debug*/
+        this.RESULT_Y = Mathf.Clamp(10f, -3f, -1f);
 
-		else if (YMinEnabled)
-			targetPos.y = Mathf.Clamp(target.position.y, YMinValue, target.position.y);
-
-		else if (YMaxEnabled)
-			targetPos.y = Mathf.Clamp(target.position.y, target.position.y, YMaxValue);
+        if (YMinEnabled && YMaxEnabled) {
+            targetPos.y = Mathf.Clamp(target.position.y, YMinValue, YMaxValue);
+        } else if (YMinEnabled) {
+             targetPos.y = Mathf.Clamp(target.position.y, YMinValue, target.position.y);
+            /**/this.TARGRT_Y = target.position.y;
+            /**/this.MIN_Y = YMinValue;
+            /**/this.RESULT_Y = targetPos.y;
+        } else if (YMaxEnabled) {
+            targetPos.y = Mathf.Clamp(target.position.y, target.position.y, YMaxValue);
+        }
 
 
 		if (XMinEnabled && XMaxEnabled)
