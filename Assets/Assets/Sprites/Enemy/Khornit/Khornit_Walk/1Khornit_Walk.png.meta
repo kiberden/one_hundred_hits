@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 1a2c2deb6612e654a84a16633554cbdf
-timeCreated: 1511557712
+guid: f8cee5e9fb24b2c489d476eb35e1b477
+timeCreated: 1511557607
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Khornit_0
+    21300000: "1\u0434_0"
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,9 +35,9 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -49,7 +49,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 20
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Khornit_0
+      name: "1\u0434_0"
       rect:
         serializedVersion: 2
         x: 26
