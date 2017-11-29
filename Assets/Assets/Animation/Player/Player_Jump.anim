@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Khorne_warrior_Walk
+  m_Name: Player_Jump
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,18 +19,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f8cee5e9fb24b2c489d476eb35e1b477, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 71512e9449a03e0419a91e264b309233, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 8fac51cc76ef49b44a3a711e3074b6ca, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 7126a367c5ec8a944ad8406402dc1b1e, type: 3}
+      value: {fileID: 21300000, guid: 377dcca932dd7e74f8efecdabebd40d7, type: 3}
+    - time: 1
+      value: {fileID: 21300000, guid: bcf5935460266b247a0986926894c079, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 6
+  m_SampleRate: 1
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,21 +41,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f8cee5e9fb24b2c489d476eb35e1b477, type: 3}
-    - {fileID: 21300000, guid: 71512e9449a03e0419a91e264b309233, type: 3}
-    - {fileID: 21300000, guid: 8fac51cc76ef49b44a3a711e3074b6ca, type: 3}
-    - {fileID: 21300000, guid: 7126a367c5ec8a944ad8406402dc1b1e, type: 3}
+    - {fileID: 21300000, guid: 377dcca932dd7e74f8efecdabebd40d7, type: 3}
+    - {fileID: 21300000, guid: bcf5935460266b247a0986926894c079, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

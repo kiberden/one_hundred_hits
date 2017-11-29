@@ -1,6 +1,10 @@
 ﻿<Properties StartupItem="1.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assets\Scripts\Enemy.cs">
+    <Files>
+      <File FileName="Assets\Assets\Scripts\Enemy.cs" Line="27" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
