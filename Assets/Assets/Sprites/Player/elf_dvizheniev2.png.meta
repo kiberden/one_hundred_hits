@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 360bd298f807a114ab675bfc2bafcf2a
-timeCreated: 1510079113
+guid: cb4849a21b17f9c4c9cb06723027d77d
+timeCreated: 1512513762
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: skayyy_0
+    21300000: elf_dvizheniev2_0
+    21300002: elf_dvizheniev2_1
+    21300004: elf_dvizheniev2_2
+    21300006: elf_dvizheniev2_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -47,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 68
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -61,7 +64,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -70,7 +73,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,7 +82,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +91,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,15 +100,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skayyy_0
+      name: elf_dvizheniev2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2362
-        height: 1181
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 218
+        width: 33
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev2_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 218
+        width: 41
+        height: 56
+      alignment: 9
+      pivot: {x: 0.58821255, y: 0.0023920876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev2_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 219
+        width: 43
+        height: 56
+      alignment: 9
+      pivot: {x: 0.6121461, y: 0.0023920876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev2_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 219
+        width: 42
+        height: 56
+      alignment: 9
+      pivot: {x: 0.6116271, y: 0.004783903}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

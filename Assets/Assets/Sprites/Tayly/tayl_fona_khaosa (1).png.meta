@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 360bd298f807a114ab675bfc2bafcf2a
-timeCreated: 1510079113
+guid: af765f59983a6874ab18b8df6ab4694c
+timeCreated: 1512427705
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: skayyy_0
+    21300000: tayl_fona_khaosa (1)_0
+    21300002: tayl_fona_khaosa (1)_1
+    21300004: tayl_fona_khaosa (1)_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -47,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 50
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -61,7 +63,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -70,7 +72,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,7 +81,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +90,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,13 +99,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skayyy_0
+      name: tayl_fona_khaosa (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2362
-        height: 1181
+        x: 594
+        y: 555
+        width: 452
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tayl_fona_khaosa (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 555
+        width: 452
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tayl_fona_khaosa (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 555
+        width: 452
+        height: 302
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 360bd298f807a114ab675bfc2bafcf2a
-timeCreated: 1510079113
+guid: 0492bd141c782ef4fb0ad406d8d582ac
+timeCreated: 1512345904
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: skayyy_0
+    21300000: ataka 2_0
+    21300002: ataka 2_1
+    21300004: ataka 2_2
+    21300006: ataka 2_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -47,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 68
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -58,37 +61,37 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,15 +100,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skayyy_0
+      name: ataka 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2362
-        height: 1181
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 39
+        y: 194
+        width: 34
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ataka 2_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 196
+        width: 52
+        height: 59
+      alignment: 9
+      pivot: {x: 0.32580125, y: 0.0018496756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ataka 2_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 194
+        width: 68
+        height: 61
+      alignment: 9
+      pivot: {x: 0.22394876, y: 0.0017890305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ataka 2_3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 194
+        width: 52
+        height: 55
+      alignment: 9
+      pivot: {x: 0.32789993, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
