@@ -32,7 +32,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Jump
+  - m_Name: IsJump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -71,7 +71,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Jump
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102372928647044592}
@@ -341,7 +341,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Jump
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102181558464543680}
@@ -437,7 +437,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Jump
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102033930534679644}
@@ -509,7 +509,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Jump
+    m_ConditionEvent: IsJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102181558464543680}
@@ -748,8 +748,8 @@ AnimatorState:
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_CycleOffsetParameter: Speed
+  m_TimeParameter: Speed
 --- !u!1102 &1102181558464543680
 AnimatorState:
   serializedVersion: 5
@@ -961,7 +961,7 @@ AnimatorStateMachine:
     m_Position: {x: -72, y: 516, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102181558464543680}
-    m_Position: {x: 192, y: 336, z: 0}
+    m_Position: {x: 180, y: 336, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102647471163372468}
     m_Position: {x: 552, y: 132, z: 0}
@@ -973,10 +973,10 @@ AnimatorStateMachine:
     m_Position: {x: 192, y: 96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102262140547580972}
-    m_Position: {x: 227, y: 161, z: 0}
+    m_Position: {x: 516, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102553199386882114}
-    m_Position: {x: 262, y: 226, z: 0}
+    m_Position: {x: 552, y: 432, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
