@@ -65,6 +65,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack")) {
             this.StartAttackTrigger();
+            HeroMeleAttack.Action(this.weapon, "Enemy", this.damage, false);
         }
     }
 
