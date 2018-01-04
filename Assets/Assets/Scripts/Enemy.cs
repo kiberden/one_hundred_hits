@@ -5,11 +5,13 @@ public class Enemy : MonoBehaviour
 {
 	public LayerMask enemyMask;
 	public float speed = 1;
+	public bool isAlive = true;
 	Rigidbody2D myBody;
 	Transform myTrans;
 	float myWidth, myHeight;
 
-    public int hits = 5; 
+    public int hits = 5;
+    Animator anim;
 
     void Start ()
 	{
@@ -17,8 +19,10 @@ public class Enemy : MonoBehaviour
 		myBody = this.GetComponent<Rigidbody2D>();
 		SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
 		myWidth = mySprite.bounds.extents.x;
+
 		myHeight = mySprite.bounds.extents.y;
-    }
+		anim = GetComponent<Animator>();
+	}
 
 	void FixedUpdate ()
 	{
@@ -30,8 +34,9 @@ public class Enemy : MonoBehaviour
 		Vector2 lineCastPos = myTrans.position.toVector2() - myTrans.right.toVector2() * myWidth + Vector2.up * myHeight;
 		//Check to see if there's ground in front of us before moving forward
 		//NOTE: Unity 4.6 and below use "- Vector2.up" instead of "+ Vector2.down"
-		//Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
-		bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + Vector2.down, enemyMask);
+
+		Debug.DrawLine(lineCastPos, lineCastPos + new Vector2(0, -4));
+		bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + new Vector2(0, -4), enemyMask);
 		//Check to see if there's a wall in front of us before moving forward
 		//Debug.DrawLine(lineCastPos, lineCastPos - myTrans.right.toVector2() );
 		bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - myTrans.right.toVector2(), enemyMask);
@@ -47,10 +52,22 @@ public class Enemy : MonoBehaviour
 		//Always move forward
 		Vector2 myVel = myBody.velocity;
 		myVel.x = -myTrans.right.x * speed;
-		//myBody.velocity = myVel;
+
+		myBody.velocity = myVel;
 
         if (this.hits <= 0) {
             GameObject.DestroyObject(this.gameObject);
         }
 	}
+
+	public void Death()
+	{
+		if(isAlive)
+		{
+			anim.SetBool("isAlive", false);
+			speed = 0;
+			isAlive = false;
+		}
+	}
+
 }

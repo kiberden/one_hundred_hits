@@ -86,7 +86,7 @@ public class CharacterController : MonoBehaviour
     {
         if (this.isOnGround && IsJumpKeyDown()) {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(1, this.jumpForce));
-        }
+		}
     }
 
     private void Pause()
@@ -133,4 +133,14 @@ public class CharacterController : MonoBehaviour
         this.weapon.enabled = false;
         this.anim.ResetTrigger("Attack");
     }
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		
+		if(coll.gameObject.name == "Khornit")
+		{
+			Enemy im = coll.gameObject.GetComponent<Enemy>();
+			im.Death();
+		}
+	}
+
 }

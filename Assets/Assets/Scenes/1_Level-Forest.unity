@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -5914,30 +5915,6 @@ Transform:
   m_Father: {fileID: 1140672612}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &715705997 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1527667188609492, guid: d39d5aebe48cd1c4baec192bf96a431a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1806447897}
---- !u!114 &715706004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 715705997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 042fba01d0047ac4695a9f1755e9c250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 797441576}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  jumpForce: 800
-  maxSpeed: 10
-  damage: 1
-  heals: 5
 --- !u!1 &719726098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6748,11 +6725,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 980164ea068c8a64ab60b6ecfee1186b, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &797441576 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4530299971567982, guid: d39d5aebe48cd1c4baec192bf96a431a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1806447897}
 --- !u!1001 &801711423
 Prefab:
   m_ObjectHideFlags: 0
@@ -12450,8 +12422,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1473509687}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.067, y: -6.67, z: 0}
-  m_LocalScale: {x: 0.61627346, y: 0.4196425, z: 1}
+  m_LocalPosition: {x: 80.14, y: -3.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -12537,6 +12509,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294966271
   speed: 5
+  isAlive: 1
 --- !u!58 &1473509694
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13995,6 +13968,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
