@@ -12510,6 +12510,7 @@ MonoBehaviour:
     m_Bits: 4294966271
   speed: 5
   isAlive: 1
+  hits: 5
 --- !u!58 &1473509694
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14733,11 +14734,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4138997654921244, guid: d39d5aebe48cd1c4baec192bf96a431a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.79
+      value: -3.848
       objectReference: {fileID: 0}
     - target: {fileID: 4138997654921244, guid: d39d5aebe48cd1c4baec192bf96a431a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.81
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4138997654921244, guid: d39d5aebe48cd1c4baec192bf96a431a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14856,6 +14857,30 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 212249155536657912, guid: d39d5aebe48cd1c4baec192bf96a431a,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58676691570716068, guid: d39d5aebe48cd1c4baec192bf96a431a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61954610060149528, guid: d39d5aebe48cd1c4baec192bf96a431a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277173618538818, guid: d39d5aebe48cd1c4baec192bf96a431a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95053504235700988, guid: d39d5aebe48cd1c4baec192bf96a431a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114454822386684840, guid: d39d5aebe48cd1c4baec192bf96a431a, type: 2}

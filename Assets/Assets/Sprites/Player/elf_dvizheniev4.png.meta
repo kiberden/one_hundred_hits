@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: cb4849a21b17f9c4c9cb06723027d77d
-timeCreated: 1512513762
+guid: 9b225e0f34fa77546bb38fb76e4710b1
+timeCreated: 1515684588
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: elf_dvizheniev2_0
-    21300002: elf_dvizheniev2_1
-    21300004: elf_dvizheniev2_2
-    21300006: elf_dvizheniev2_3
+    21300000: elf_dvizheniev4_0
+    21300002: elf_dvizheniev4_1
+    21300004: elf_dvizheniev4_2
+    21300006: elf_dvizheniev4_3
+    21300008: elf_dvizheniev4_4
+    21300010: elf_dvizheniev4_5
+    21300012: elf_dvizheniev4_6
+    21300014: elf_dvizheniev4_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -69,6 +73,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -78,6 +83,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: iPhone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -87,6 +93,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   - buildTarget: Android
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -96,61 +103,118 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: elf_dvizheniev2_0
+      name: elf_dvizheniev4_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 218
+        x: 19
+        y: 217
         width: 33
         height: 56
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5300202, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: elf_dvizheniev2_1
+      name: elf_dvizheniev4_1
       rect:
         serializedVersion: 2
-        x: 59
+        x: 60
+        y: 217
+        width: 44
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5800202, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev4_2
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 216
+        width: 49
+        height: 56
+      alignment: 9
+      pivot: {x: 0.56161934, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev4_3
+      rect:
+        serializedVersion: 2
+        x: 178
         y: 218
-        width: 41
+        width: 45
         height: 56
       alignment: 9
-      pivot: {x: 0.58821255, y: 0.0023920876}
+      pivot: {x: 0.5887933, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: elf_dvizheniev2_2
+      name: elf_dvizheniev4_4
       rect:
         serializedVersion: 2
-        x: 102
-        y: 219
-        width: 43
+        x: 236
+        y: 217
+        width: 33
         height: 56
       alignment: 9
-      pivot: {x: 0.6121461, y: 0.0023920876}
+      pivot: {x: 0.5300202, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: elf_dvizheniev2_3
+      name: elf_dvizheniev4_5
       rect:
         serializedVersion: 2
-        x: 152
-        y: 219
-        width: 42
+        x: 39
+        y: 146
+        width: 44
         height: 56
       alignment: 9
-      pivot: {x: 0.6116271, y: 0.004783903}
+      pivot: {x: 0.5800202, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev4_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 148
+        width: 49
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5616193, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: elf_dvizheniev4_7
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 148
+        width: 45
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5887933, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
