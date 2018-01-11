@@ -20,6 +20,12 @@ public class CharacterController : MonoBehaviour
     private BoxCollider2D weapon;
     private Animator anim; //Анимация
 
+    public string status = "";
+
+    /*debug*/
+    public bool isAttack;
+    private static int _frameCount = -1;
+
     private void Start()
 	{
 		this.anim = GetComponent<Animator>();// для анимации, но это как обычно
@@ -37,7 +43,7 @@ public class CharacterController : MonoBehaviour
                 this.whatIsGround
             );
         this.speed = Input.GetAxisRaw("Horizontal");
-	}
+    }
 
     private void Update()
     {
@@ -49,7 +55,6 @@ public class CharacterController : MonoBehaviour
         Pause();
 
         FlipHero();
-        Attack();
     }
 
     private void FlipHero()
@@ -64,9 +69,15 @@ public class CharacterController : MonoBehaviour
     private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack")) {
-            this.StartAttackTrigger();
+            /*debug*/
+            //var animatorStateInfo = this.anim.GetCurrentAnimatorStateInfo(0);
+            //animatorStateInfo.IsName("Player_attack");
+            /**/
+
+            this.anim.SetTrigger("Attack");
+            //this.StartAttackTrigger();
             HeroMeleAttack.Action(this.weapon, "Enemy", this.damage, false);
-        }
+        }   
     }
 
     private void Flip(bool flipOnRight)
@@ -125,22 +136,28 @@ public class CharacterController : MonoBehaviour
     private void StartAttackTrigger()
     {
         this.weapon.enabled = true;
-        this.anim.SetTrigger("Attack");
+        Debug.Log("start");
     }
 
     private void CompleteAttackTrigger()
     {
         this.weapon.enabled = false;
         this.anim.ResetTrigger("Attack");
+        Debug.Log("end");
     }
-	void OnCollisionEnter2D(Collision2D coll) 
+
+    public bool IsAttackStatus()
+    {
+        return this.status == "Attack";
+    }
+
+	/*void OnCollisionEnter2D(Collision2D coll) 
 	{
-		
 		if(coll.gameObject.name == "Khornit")
 		{
 			Enemy im = coll.gameObject.GetComponent<Enemy>();
 			im.Death();
 		}
-	}
+	}*/
 
 }

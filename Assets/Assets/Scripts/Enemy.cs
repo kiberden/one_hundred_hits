@@ -5,69 +5,126 @@ public class Enemy : MonoBehaviour
 {
 	public LayerMask enemyMask;
 	public float speed = 1;
-	public bool isAlive = true;
-	Rigidbody2D myBody;
-	Transform myTrans;
+	public Rigidbody2D myBody;
+	public Transform MyTransform;
+    public Transform target;
 	float myWidth, myHeight;
 
     public int hits = 5;
-    Animator anim;
+    public Animator enemyAnimator;
+
+    public bool isAlive = true;
+    public bool isPatrol = true;
+
+    /*debug*/
+    public bool SawHero;
+    public float Range;
+    public float move;
+    public bool heroAttack;
 
     void Start ()
 	{
-		myTrans = this.transform;
+		this.MyTransform = this.transform;
 		myBody = this.GetComponent<Rigidbody2D>();
-		SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
+        this.target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
 		myWidth = mySprite.bounds.extents.x;
 
 		myHeight = mySprite.bounds.extents.y;
-		anim = GetComponent<Animator>();
-	}
+		this.enemyAnimator = GetComponent<Animator>();
+
+        this.enemyAnimator.SetBool("Walk", true);
+    }
 
 	void FixedUpdate ()
 	{
-		//NOTE: This script makes use of the .toVector2() extension method.
-		//Be sure you have the following script in your project to avoid errors
-		//http://www.devination.com/2015/07/unity-extension-method-tutorial.html
+        if (this.SawHero = this.IsSawEnermy()) {
+            this.isPatrol = false;
 
-		//Use this position to cast the isGrounded/isBlocked lines from
-		Vector2 lineCastPos = myTrans.position.toVector2() - myTrans.right.toVector2() * myWidth + Vector2.up * myHeight;
-		//Check to see if there's ground in front of us before moving forward
-		//NOTE: Unity 4.6 and below use "- Vector2.up" instead of "+ Vector2.down"
+            this.Range = Vector2.Distance(this.MyTransform.position, this.target.position);
 
-		Debug.DrawLine(lineCastPos, lineCastPos + new Vector2(0, -4));
-		bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + new Vector2(0, -4), enemyMask);
-		//Check to see if there's a wall in front of us before moving forward
-		//Debug.DrawLine(lineCastPos, lineCastPos - myTrans.right.toVector2() );
-		bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - myTrans.right.toVector2(), enemyMask);
-
-		//If theres no ground, turn around. Or if I hit a wall, turn around
-		if(!isGrounded || isBlocked)
-		{
-			Vector3 currRot = myTrans.eulerAngles;
-			currRot.y += 180;
-			myTrans.eulerAngles = currRot;
-		}
-
-		//Always move forward
-		Vector2 myVel = myBody.velocity;
-		myVel.x = -myTrans.right.x * speed;
-
-		myBody.velocity = myVel;
+            if (Range >= 8f) {
+                if (this.IsGrounded() || !this.IsBlocked()) {
+                    this.Walk();
+                }
+            } else if (Range < 8f && Range > 3f) {
+                if (this.IsGrounded() || !this.IsBlocked()) {
+                    this.Charge();
+                }
+            } else if (Range <= 3f) {
+                //атака или блок
+                CharacterController Hero = this.target.gameObject.GetComponent<CharacterController>();
+                this.heroAttack = Hero.IsAttackStatus();
+            }
+        } else {
+            this.isPatrol = true;
+            this.WalkAround();
+        }
 
         if (this.hits <= 0) {
-            GameObject.DestroyObject(this.gameObject);
+            this.Death();
         }
-	}
+    }
+
+    private bool IsSawEnermy()
+    {
+        Vector2 SeeLinePosition = this.MyTransform.position.toVector2() - this.MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
+        /*debug only*/Debug.DrawLine(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, Color.green);
+        return Physics2D.Linecast(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, LayerMask.GetMask("Hero"));
+    }
+
+    public void WalkAround()
+    {
+        if (this.isPatrol) {
+            if (!this.IsGrounded() || this.IsBlocked()) {
+                Vector3 currRot = MyTransform.eulerAngles;
+                currRot.y += 180;
+                MyTransform.eulerAngles = currRot;
+            }
+
+            //Always move forward
+            this.Walk();
+        }
+    }
+
+    private void Walk(float speedMultiplier = 1)
+    {
+        Vector2 myVel = this.myBody.velocity;
+        myVel.x = -this.MyTransform.right.x * this.speed * speedMultiplier;
+
+        this.myBody.velocity = myVel;
+    }
+
+    private void Charge()
+    {
+        this.Walk(3f);
+    }
+
+    private bool IsBlocked()
+    {
+        Vector2 lineCastPos = MyTransform.position.toVector2() - MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
+        Debug.DrawLine(lineCastPos, lineCastPos - MyTransform.right.toVector2(), Color.yellow);
+
+        return Physics2D.Linecast(lineCastPos, lineCastPos - MyTransform.right.toVector2(), enemyMask);
+    }
+
+    private bool IsGrounded()
+    {
+        Vector2 lineCastPos = MyTransform.position.toVector2() - MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
+        Debug.DrawLine(lineCastPos, lineCastPos + new Vector2(0, -4), Color.red);
+
+        return Physics2D.Linecast(lineCastPos, lineCastPos + new Vector2(0, -4), enemyMask);
+    }
 
 	public void Death()
 	{
-		if(isAlive)
-		{
-			anim.SetBool("isAlive", false);
+		if (isAlive) {
+			this.enemyAnimator.SetBool("isAlive", false);
 			speed = 0;
 			isAlive = false;
-		}
+            //GameObject.DestroyObject(this.gameObject);
+        }
 	}
 
 }
