@@ -24,7 +24,6 @@ public class CharacterController : MonoBehaviour
 
     /*debug*/
     public bool isAttack;
-    private static int _frameCount = -1;
 
     private void Start()
 	{
@@ -136,7 +135,6 @@ public class CharacterController : MonoBehaviour
     private void StartAttackTrigger()
     {
         this.weapon.enabled = true;
-        Debug.Log("start");
     }
 
     private void CompleteAttackTrigger()
@@ -148,7 +146,7 @@ public class CharacterController : MonoBehaviour
 
     public bool IsAttackStatus()
     {
-        return this.status == "Attack";
+        return this.anim.GetBool("Attack");
     }
 
 	/*void OnCollisionEnter2D(Collision2D coll) 

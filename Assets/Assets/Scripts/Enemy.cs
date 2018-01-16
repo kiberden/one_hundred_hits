@@ -15,13 +15,20 @@ public class Enemy : MonoBehaviour
 
     public bool isAlive = true;
     public bool isPatrol = true;
+    public bool isShield = false;
+    public bool isAttack = false;
 
-    /*debug*/
+    private Animator HeroAnimator;
+
+    //debug
     public bool SawHero;
     public float Range;
     public float move;
     public bool heroAttack;
 
+    /**
+     * Нужно отрефакторить, простыня
+     */
     void Start ()
 	{
 		this.MyTransform = this.transform;
@@ -29,14 +36,21 @@ public class Enemy : MonoBehaviour
         this.target = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
-		myWidth = mySprite.bounds.extents.x;
+        //this.HeroAnimator = this.target.gameObject.GetComponent<Animator>();
 
+        myWidth = mySprite.bounds.extents.x;
 		myHeight = mySprite.bounds.extents.y;
 		this.enemyAnimator = GetComponent<Animator>();
 
         this.enemyAnimator.SetBool("Walk", true);
+
+        //GameObject.rigidbody.freezeRotation = true;
+        this.GetComponent<Rigidbody2D>().freezeRotation = true;
     }
 
+    /**
+     * Нужно отрефакторить, простыня кода
+     */
 	void FixedUpdate ()
 	{
         if (this.SawHero = this.IsSawEnermy()) {
@@ -44,21 +58,27 @@ public class Enemy : MonoBehaviour
 
             this.Range = Vector2.Distance(this.MyTransform.position, this.target.position);
 
-            if (Range >= 8f) {
+            if (Range >= 3f) {
                 if (this.IsGrounded() || !this.IsBlocked()) {
                     this.Walk();
                 }
-            } else if (Range < 8f && Range > 3f) {
-                if (this.IsGrounded() || !this.IsBlocked()) {
-                    this.Charge();
-                }
-            } else if (Range <= 3f) {
+            } else {
                 //атака или блок
-                CharacterController Hero = this.target.gameObject.GetComponent<CharacterController>();
-                this.heroAttack = Hero.IsAttackStatus();
+                this.enemyAnimator.ResetTrigger("Walk");
+
+                if (this.target.gameObject.GetComponent<Animator>().GetBool("Attack") && !this.isShield)
+                {
+                    this.RieseShieldTrigger();
+                }
+
+                if (!this.isShield && !this.isAttack)
+                {
+                    this.StartAttackTrigger();
+                }
             }
         } else {
             this.isPatrol = true;
+            this.enemyAnimator.SetBool("Walk", true);
             this.WalkAround();
         }
 
@@ -67,20 +87,69 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /**
+     * Видим героя или нет
+     */
     private bool IsSawEnermy()
     {
         Vector2 SeeLinePosition = this.MyTransform.position.toVector2() - this.MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
-        /*debug only*/Debug.DrawLine(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, Color.green);
+        Debug.DrawLine(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, Color.green);
         return Physics2D.Linecast(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, LayerMask.GetMask("Hero"));
     }
 
+    /**
+     * Старт анимации щита
+     */
+    private void RieseShieldTrigger()
+    {
+        this.isShield = true;
+        this.enemyAnimator.SetTrigger("Shild");
+        Debug.Log("Up Shield");
+    }
+
+    /**
+     * Метод-триггер, запускается в конце анимации щита
+     */
+    private void LowerShieldTrigger()
+    {
+        this.enemyAnimator.SetBool("Shild", false);
+        this.isShield = false;
+        Debug.Log("Down Shield");
+    }
+
+    /**
+     * Старт атаки, запускает анимацию
+     */
+    private void StartAttackTrigger()
+    {
+        Debug.Log("Start Attack");
+        this.isAttack = true;
+        this.enemyAnimator.SetTrigger("Attack");
+    }
+
+    /**
+     * Метод-триггер, срабатывает по завершению анимации атаки
+     */
+    private void EndAttackTrigger()
+    {
+        this.enemyAnimator.SetBool("Attack", false);
+        this.isAttack = false;
+        Debug.Log("Stop Attack");
+    }
+
+    /**
+     * Метод запускающий патрулирования
+     */
     public void WalkAround()
     {
+        this.isAttack = false;
+        this.isShield = false;
+        this.enemyAnimator.SetBool("Shild", false);
+        this.enemyAnimator.SetBool("Attack", false);
+
         if (this.isPatrol) {
             if (!this.IsGrounded() || this.IsBlocked()) {
-                Vector3 currRot = MyTransform.eulerAngles;
-                currRot.y += 180;
-                MyTransform.eulerAngles = currRot;
+                MyTransform.RotateAround(this.MyTransform.position, new Vector3(0, 1, 0), 180f);
             }
 
             //Always move forward
@@ -88,19 +157,35 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /**
+     * Движение
+     */
     private void Walk(float speedMultiplier = 1)
     {
-        Vector2 myVel = this.myBody.velocity;
-        myVel.x = -this.MyTransform.right.x * this.speed * speedMultiplier;
-
-        this.myBody.velocity = myVel;
+        MyTransform.Translate(Vector3.left * (this.speed * 0.01f) * speedMultiplier);
     }
 
+    /**
+     * Метод для рассчета получаемого урона 
+     */
+    public void TakeDamage(int damage)
+    {
+        if (!this.isShield) {
+            this.hits -= damage;
+        }
+    }
+
+    /**
+     * Чардж, вызываем метод движения но с увеличенным множителем скорости
+     */
     private void Charge()
     {
-        this.Walk(3f);
+        this.Walk(0.5f);
     }
 
+    /**
+     * Проверка на препятствие по направлению движения
+     */
     private bool IsBlocked()
     {
         Vector2 lineCastPos = MyTransform.position.toVector2() - MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
@@ -109,6 +194,9 @@ public class Enemy : MonoBehaviour
         return Physics2D.Linecast(lineCastPos, lineCastPos - MyTransform.right.toVector2(), enemyMask);
     }
 
+    /**
+     * Проверка поверхности для движения
+     */
     private bool IsGrounded()
     {
         Vector2 lineCastPos = MyTransform.position.toVector2() - MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
@@ -117,14 +205,23 @@ public class Enemy : MonoBehaviour
         return Physics2D.Linecast(lineCastPos, lineCastPos + new Vector2(0, -4), enemyMask);
     }
 
+    /**
+     * Смерть, запускаем анимацию
+     */
 	public void Death()
 	{
 		if (isAlive) {
 			this.enemyAnimator.SetBool("isAlive", false);
 			speed = 0;
 			isAlive = false;
-            //GameObject.DestroyObject(this.gameObject);
         }
 	}
 
+    /**
+     * Тригерим удаление геймобъекта со сцены по окончанию анимации смерти 
+     */
+    public void DeathTrigger()
+    {
+        GameObject.DestroyObject(this.gameObject);
+    }
 }

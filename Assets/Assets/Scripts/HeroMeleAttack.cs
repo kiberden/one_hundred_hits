@@ -29,14 +29,13 @@ public class HeroMeleAttack : MonoBehaviour {
             GameObject obj = resultArray[0].gameObject;
 
             if (obj.GetComponent<Enemy>()) {
-                obj.GetComponent<Enemy>().hits -= damage;
+                obj.GetComponent<Enemy>().TakeDamage(damage);
             }
             return;
         } else if (allTargets) {
             foreach (Collider2D hit in resultArray) {
                 if (hit.gameObject.GetComponent<Enemy>()) {
-                    hit.gameObject.GetComponent<Enemy>().hits -= damage;
-                    Debug.LogError(hit.gameObject.GetComponent<Enemy>().hits);
+                    hit.gameObject.GetComponent<Enemy>().TakeDamage(damage);
                 }
             }
         }
