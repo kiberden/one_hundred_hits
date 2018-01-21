@@ -58,24 +58,30 @@ public class Enemy : MonoBehaviour
 
             this.Range = Vector2.Distance(this.MyTransform.position, this.target.position);
 
-            if (Range >= 3f) {
-                if (this.IsGrounded() || !this.IsBlocked()) {
+            if (Range >= 3f)
+            {
+                if (this.IsGrounded() || !this.IsBlocked())
+                {
                     this.Walk();
                 }
-            } else {
+            }
+            else
+            {
                 //атака или блок
                 this.enemyAnimator.ResetTrigger("Walk");
 
-                if (this.target.gameObject.GetComponent<Animator>().GetBool("Attack") && !this.isShield)
+                /*if (this.target.gameObject.GetComponent<Animator>().GetBool("Attack") && !this.isShield)
                 {
                     this.RieseShieldTrigger();
-                }
-
-                if (!this.isShield && !this.isAttack)
-                {
-                    this.StartAttackTrigger();
-                }
+                }*/
             }
+               
+            if (!this.isShield && /*!this.isAttack*/!this.enemyAnimator.GetBool("Attack"))
+            {
+                this.StartAttackTrigger();
+            } else {
+                    //this.EndAttackTrigger();
+                }
         } else {
             this.isPatrol = true;
             this.enemyAnimator.SetBool("Walk", true);
