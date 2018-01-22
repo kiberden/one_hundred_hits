@@ -149,6 +149,8 @@ public class CharacterController : MonoBehaviour
         return this.anim.GetBool("Attack");
     }
 
+
+
 	/*void OnCollisionEnter2D(Collision2D coll) 
 	{
 		if(coll.gameObject.name == "Khornit")
