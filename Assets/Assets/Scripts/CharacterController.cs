@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class CharacterController : MonoBehaviour
 	public float jumpForce = 650;
 	public float maxSpeed = 10;
 	public int damage = 1;
-	public int heals = 5;
+    [SerializeField]
+    private int heals = 10;
 
 	private float speed;
 	private float groundRadius = 0.2f;
@@ -21,9 +23,10 @@ public class CharacterController : MonoBehaviour
 	private Animator anim; //Анимация
 
 	public string status = "";
-
-	/*debug*/
-	public bool isAttack;
+   
+    
+    /*debug*/
+    public bool isAttack;
 
 	private void Start()
 	{
@@ -54,7 +57,22 @@ public class CharacterController : MonoBehaviour
 		Pause();
 
 		FlipHero();
-	}
+
+        {
+            if (heals <= 0)
+            {
+                heals = 0;
+                Death();
+            }
+
+        }
+    }
+
+    private void Death()
+    {
+        Application.LoadLevel (Application.loadedLevel);
+    } 
+
 
 	private void FlipHero()
 	{
@@ -68,10 +86,10 @@ public class CharacterController : MonoBehaviour
 	private void Attack()
 	{
 		if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack")) {
-			//SoundManager.PlaySound ("playerAttack");
+			SoundManager.PlaySound ("playerAttack");
 			/*debug*/
-			//var animatorStateInfo = this.anim.GetCurrentAnimatorStateInfo(0);
-			//animatorStateInfo.IsName("Player_attack");
+			var animatorStateInfo = this.anim.GetCurrentAnimatorStateInfo(0);
+			animatorStateInfo.IsName("Player_attack");
 			/**/
 
 			this.anim.SetTrigger("Attack");
@@ -96,10 +114,10 @@ public class CharacterController : MonoBehaviour
 	private void Jump()
 	{
 		if (this.isOnGround && IsJumpKeyDown()) {
-			//SoundManager.PlaySound ("playerJump");
+			SoundManager.PlaySound ("playerJump");
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(1, this.jumpForce));
-
-		}
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        }
 	}
 
 	private void Pause()
@@ -154,13 +172,27 @@ public class CharacterController : MonoBehaviour
 
 
 
-	/*void OnCollisionEnter2D(Collision2D coll) 
+	void OnCollisionEnter2D(Collision2D coll) 
 	{
 		if(coll.gameObject.name == "Khornit")
 		{
 			Enemy im = coll.gameObject.GetComponent<Enemy>();
 			im.Death();
 		}
-	}*/
+        if (coll.gameObject.tag == "Enemy")
+        {
+            heals --;
 
+           
+        }
+
+
+
+    }
+
+   
+
+        
+
+    
 }

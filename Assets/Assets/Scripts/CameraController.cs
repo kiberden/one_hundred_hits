@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
 	public float smoothtime = .15f;
 
 	public bool YMaxEnabled = false;
-	public float YMaxValue = 0;
+	public float YMaxValue = 15;
 
 	public bool YMinEnabled = false;
 	public float YMinValue = 0;
@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
 	public bool XMinEnabled = false;
 	public float XMinValue = 0;
 
-    public float offsetY = 1.5f;
+    public float offsetY = 10f;
     public float TARGRT_Y = 0f;
     public float MIN_Y = 0f;
     public float RESULT_Y = 0f;
