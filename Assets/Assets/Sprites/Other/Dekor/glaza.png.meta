@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: 23c65cc35956e494d9ffce97e06659b7
-timeCreated: 1515095809
+guid: 3b4ff82dfc533ef4dab8c8329b0755ec
+timeCreated: 1527539068
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tayly_anturazh_dekoratsii_0
-    21300002: tayly_anturazh_dekoratsii_1
-    21300004: tayly_anturazh_dekoratsii_2
-    21300006: tayly_anturazh_dekoratsii_3
-    21300008: tayly_anturazh_dekoratsii_4
+    21300000: glaza_0
+    21300002: glaza_1
+    21300004: glaza_2
+    21300006: glaza_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -50,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,93 +81,59 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_0
+      name: glaza_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 26
-        width: 22
-        height: 22
+        x: 27
+        y: 72
+        width: 28
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_1
+      name: glaza_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 26
-        width: 22
-        height: 22
+        x: 68
+        y: 72
+        width: 28
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_2
+      name: glaza_2
       rect:
         serializedVersion: 2
-        x: 76
-        y: 26
-        width: 22
-        height: 22
+        x: 105
+        y: 72
+        width: 28
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_3
+      name: glaza_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_4
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 26
-        width: 22
-        height: 22
+        x: 105
+        y: 61
+        width: 28
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

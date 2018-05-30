@@ -4,39 +4,63 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
-	public Transform groundCheck;
-	public LayerMask whatIsGround;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
 
-	public float jumpForce = 650;
-	public float maxSpeed = 10;
-	public int damage = 1;
+    public float jumpForce = 650;
+    public float maxSpeed = 10;
+    public int damage = 1;
     [SerializeField]
-    private int heals = 10;
+    private int heals = 5;
 
-	private float speed;
-	private float groundRadius = 0.2f;
-	private bool isPause = false;
-	private bool isOnGround = false;
-	private bool isShowRight = true;
+    public int Heals // для отображения жизней 1
+    {
+        get { return heals; }
+        set
+        {
+            if (value < 5) heals = value;
+            healsbar.Refresh();
+        }
+    }   
 
-	private BoxCollider2D weapon;
-	private Animator anim; //Анимация
-
-	public string status = "";
-   
+    private HealsBar healsbar;
     
+    
+
+
+    private float speed;
+    private float groundRadius = 0.2f;
+    private bool isPause = false;
+    private bool isOnGround = false;
+    private bool isShowRight = true;
+
+    private BoxCollider2D weapon;
+    private Animator anim; //Анимация
+
+    public string status = "";
+
+
     /*debug*/
     public bool isAttack;
 
-	private void Start()
-	{
-		this.anim = GetComponent<Animator>();// для анимации, но это как обычно
-		this.weapon = GameObject.Find("/hero/Sword/").GetComponent<BoxCollider2D>();
-	}
+    private void Awake()
+    {
 
+      healsbar = FindObjectOfType<HealsBar>();
+    } // для отображения жизней
+
+    private void Start()
+    {
+        this.anim = GetComponent<Animator>();// для анимации, но это как обычно
+        this.weapon = GameObject.Find("/hero/Sword/").GetComponent<BoxCollider2D>();
+    }
+    
 	/**
      * update every 1 frames
      */
+
+
+
 	private void FixedUpdate()
 	{
 		this.isOnGround = Physics2D.OverlapCircle(
@@ -65,7 +89,7 @@ public class CharacterController : MonoBehaviour
                 Death();
             }
 
-        }
+        }// смерть
     }
 
     private void Death()
@@ -181,9 +205,8 @@ public class CharacterController : MonoBehaviour
 		}
         if (coll.gameObject.tag == "Enemy")
         {
-            heals --;
-
-           
+            Heals --; // заменил h на H чтобы отнимались сердечки
+            
         }
 
 

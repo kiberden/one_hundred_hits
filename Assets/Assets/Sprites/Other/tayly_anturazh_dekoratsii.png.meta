@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 23c65cc35956e494d9ffce97e06659b7
-timeCreated: 1515095809
+guid: 6416254e1124792449e7ee8bf80e6bbd
+timeCreated: 1527612486
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: tayly_anturazh_dekoratsii_0
     21300002: tayly_anturazh_dekoratsii_1
-    21300004: tayly_anturazh_dekoratsii_2
-    21300006: tayly_anturazh_dekoratsii_3
-    21300008: tayly_anturazh_dekoratsii_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -82,26 +79,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -109,12 +86,12 @@ TextureImporter:
       name: tayly_anturazh_dekoratsii_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 19
+        y: 28
+        width: 71
+        height: 79
+      alignment: 9
+      pivot: {x: 0.49886763, y: -0.00037794476}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -123,54 +100,12 @@ TextureImporter:
       name: tayly_anturazh_dekoratsii_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_2
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_3
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: tayly_anturazh_dekoratsii_4
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 26
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 29
+        width: 67
+        height: 78
+      alignment: 9
+      pivot: {x: 0.50154066, y: 0.0010993909}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
