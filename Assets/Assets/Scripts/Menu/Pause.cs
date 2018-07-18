@@ -13,14 +13,16 @@ public class Pause : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        Cursor.visible = false;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(pausebutton))
         {
             isPaused = !isPaused;
+            Cursor.visible = true;
         }
 		if (isPaused)
         {
@@ -31,6 +33,7 @@ public class Pause : MonoBehaviour {
         {
             panelPause.SetActive(false);
             Time.timeScale = 1;
+            Cursor.visible = false;
         }
    
 	}

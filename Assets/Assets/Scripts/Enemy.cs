@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	public LayerMask enemyMask;
-	public float speed = 1;
-	public Rigidbody2D myBody;
-	public Transform MyTransform;
+    public LayerMask enemyMask;
+        public float speed = 1;
+    public Rigidbody2D myBody;
+    public Transform MyTransform;
     public Transform target;
-	float myWidth, myHeight;
+    float myWidth, myHeight;
+
 
     public int hits = 5;
     public Animator enemyAnimator;
@@ -26,43 +27,53 @@ public class Enemy : MonoBehaviour
     public float move;
     public bool heroAttack;
 
+    private CharacterController player;
+
+
     /**
      * Нужно отрефакторить, простыня
      */
-    void Start ()
-	{
-		this.MyTransform = this.transform;
-		myBody = this.GetComponent<Rigidbody2D>();
+    void Start()
+    {
+        this.MyTransform = this.transform;
+        myBody = this.GetComponent<Rigidbody2D>();
         this.target = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpriteRenderer mySprite = this.GetComponent<SpriteRenderer>();
         //this.HeroAnimator = this.target.gameObject.GetComponent<Animator>();
 
         myWidth = mySprite.bounds.extents.x;
-		myHeight = mySprite.bounds.extents.y;
-		this.enemyAnimator = GetComponent<Animator>();
+        myHeight = mySprite.bounds.extents.y;
+        this.enemyAnimator = GetComponent<Animator>();
 
         this.enemyAnimator.SetBool("Walk", true);
 
         //GameObject.rigidbody.freezeRotation = true;
         this.GetComponent<Rigidbody2D>().freezeRotation = true;
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
     }
 
     /**
      * Нужно отрефакторить, простыня кода
      */
-	void FixedUpdate ()
-	{
-        if (this.SawHero = this.IsSawEnermy()) {
+    void FixedUpdate()
+    {
+        if (this.SawHero = this.IsSawEnermy())
+        {
             this.isPatrol = false;
 
             this.Range = Vector2.Distance(this.MyTransform.position, this.target.position);
 
-            if (Range >= 3f) {
-                if (this.IsGrounded() || !this.IsBlocked()) {
+            if (Range >= 3f)
+            {
+                if (this.IsGrounded() || !this.IsBlocked())
+                {
                     this.Walk();
                 }
-            } else {
+            }
+            else
+            {
                 //атака или блок
                 this.enemyAnimator.ResetTrigger("Walk");
 
@@ -76,13 +87,16 @@ public class Enemy : MonoBehaviour
                     this.StartAttackTrigger();
                 }
             }
-        } else {
+        }
+        else
+        {
             this.isPatrol = true;
             this.enemyAnimator.SetBool("Walk", true);
             this.WalkAround();
         }
 
-        if (this.hits <= 0) {
+        if (this.hits <= 0)
+        {
             this.Death();
         }
     }
@@ -147,8 +161,10 @@ public class Enemy : MonoBehaviour
         this.enemyAnimator.SetBool("Shild", false);
         this.enemyAnimator.SetBool("Attack", false);
 
-        if (this.isPatrol) {
-            if (!this.IsGrounded() || this.IsBlocked()) {
+        if (this.isPatrol)
+        {
+            if (!this.IsGrounded() || this.IsBlocked())
+            {
                 MyTransform.RotateAround(this.MyTransform.position, new Vector3(0, 1, 0), 180f);
             }
 
@@ -170,7 +186,8 @@ public class Enemy : MonoBehaviour
      */
     public void TakeDamage(int damage)
     {
-        if (!this.isShield) {
+        if (!this.isShield)
+        {
             this.hits -= damage;
         }
     }
@@ -208,14 +225,15 @@ public class Enemy : MonoBehaviour
     /**
      * Смерть, запускаем анимацию
      */
-	public void Death()
-	{
-		if (isAlive) {
-			this.enemyAnimator.SetBool("isAlive", false);
-			speed = 0;
-			isAlive = false;
+    public void Death()
+    {
+        if (isAlive)
+        {
+            this.enemyAnimator.SetBool("isAlive", false);
+            speed = 0;
+            isAlive = false;
         }
-	}
+    }
 
     /**
      * Тригерим удаление геймобъекта со сцены по окончанию анимации смерти 
@@ -223,5 +241,31 @@ public class Enemy : MonoBehaviour
     public void DeathTrigger()
     {
         GameObject.DestroyObject(this.gameObject);
+    }
+
+    /* void OnTriggerEnter2D(Collider2D col)
+     {
+
+         if (col.CompareTag("Player"))
+         {
+
+             player.Damag(1);
+
+
+
+         }
+     }
+     */
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+                          
+
+            player.Damag(1);
+            
+
+
+        }
     }
 }

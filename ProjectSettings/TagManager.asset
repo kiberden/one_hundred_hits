@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
-  - Level
+  - Interactable
   - Enemy
   - Usable
-  - Interactable
+  - Level
   - IgnorePlayer
   - Player
   - Cameras
