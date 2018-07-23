@@ -17,7 +17,7 @@ public class Attack : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             Maroder.isAttacking = true;
-            player.Damag(1);
+            //player.Damag(1);
         }
     }
 

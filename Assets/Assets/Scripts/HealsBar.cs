@@ -19,12 +19,12 @@ public class HealsBar : MonoBehaviour
         }
     }
 
-    public void Refresh()
-    {
-        for (int i = 0; i < harts.Length; i++)
-        {
-            if (i < hero.Heals) harts[i].gameObject.SetActive(true);
-            else harts[i].gameObject.SetActive(false);
-        }
-    }
+    //public void Refresh()
+    //{
+    //    for (int i = 0; i < harts.Length; i++)
+    //    {
+    //        if (i < hero.Heals) harts[i].gameObject.SetActive(true);
+    //        else harts[i].gameObject.SetActive(false);
+    //    }
+    //}
 }

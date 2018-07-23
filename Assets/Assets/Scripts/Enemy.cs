@@ -256,16 +256,11 @@ public class Enemy : MonoBehaviour
          }
      }
      */
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Player")
-        {
-                          
-
-            player.Damag(1);
-            
-
-
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.tag == "Player")
+    //    {
+    //        player.Damag(1);
+    //    }
+    //}
 }
