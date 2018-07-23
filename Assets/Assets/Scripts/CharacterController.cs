@@ -13,6 +13,29 @@ public class CharacterController : MonoBehaviour
 
     private float speed;
     private float groundRadius = 0.2f;
+<<<<<<< HEAD
+=======
+    public float jumpBack; //knockback after damage    
+    public bool IsJumpNow = false;
+    public Component weapon;
+
+    // Переменные целые: Урон и Здоровье
+    public int damage = 1; // урон наносимый
+    [SerializeField]
+    public static int heals = 5; // количество жизней
+
+    public int Heals // для отображения жизней 1
+    {
+        get { return heals; }
+        set
+        {
+            if (value < 5) heals = value;
+            healsbar.Refresh();
+        }
+    }
+
+    // Булевые значения
+>>>>>>> 5f61ee9... поправляем
     private bool isPause = false;
     private bool isOnGround = false;
     private bool isShowRight = true;
@@ -26,9 +49,17 @@ public class CharacterController : MonoBehaviour
     public bool isAttack;
 
     private void Start()
+<<<<<<< HEAD
 	{
 		this.anim = GetComponent<Animator>();// для анимации, но это как обычно
         this.weapon = GameObject.Find("/hero/Sword/").GetComponent<BoxCollider2D>();
+=======
+    {
+        InvokeRepeating("nCollisionEnter2D", 0f, 5.0f);
+        this.anim = GetComponent<Animator>();// для анимации, но это как обычно
+        //this.weapon = GameObject.Find("/hero/Sword/").GetComponent<BoxCollider2D>();
+        /*enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();*/
+>>>>>>> 5f61ee9... поправляем
     }
 
     /**
@@ -54,6 +85,39 @@ public class CharacterController : MonoBehaviour
         Pause();
 
         FlipHero();
+<<<<<<< HEAD
+=======
+
+        {
+            if (heals <= 0)
+            {
+                heals = 0;
+                //Death();
+            }
+
+        }// смерть
+
+        IsJumpNow = IsJumpKeyDown();
+    }
+
+    public IEnumerator Dam(float timerdur)
+      {
+        /*  MyTransform = FindObjectOfType<Enemy>();
+          Vector3 dir = (groundCheck.transform.position - MyTransform.transform.position);
+          Forceback(dir); */
+
+        float timer = 0;
+
+
+        while (timerdur > timer)
+        {
+            timer += Time.deltaTime;
+            transform.Translate(Vector2.left * jumpBack);
+        }
+        yield return new WaitForSeconds(10.0f);
+        //yield return 0;
+
+>>>>>>> 5f61ee9... поправляем
     }
 
     private void FlipHero()
@@ -66,11 +130,21 @@ public class CharacterController : MonoBehaviour
     }
 
     private void Attack()
+<<<<<<< HEAD
     {
         if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack")) {
             /*debug*/
             //var animatorStateInfo = this.anim.GetCurrentAnimatorStateInfo(0);
             //animatorStateInfo.IsName("Player_attack");
+=======
+      {
+          if (Input.GetKeyDown(KeyCode.E) && !this.anim.GetBool("Attack"))
+          {
+              SoundManager.PlaySound("playerAttack");
+              /*debug*/
+                var animatorStateInfo = this.anim.GetCurrentAnimatorStateInfo(0);
+            animatorStateInfo.IsName("Player_attack");
+>>>>>>> 5f61ee9... поправляем
             /**/
 
             this.anim.SetTrigger("Attack");
@@ -132,14 +206,38 @@ public class CharacterController : MonoBehaviour
         return (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow));
     }
 
+<<<<<<< HEAD
+=======
+    ///Начало блока нанесение урона
+    public void Damag(int dmg)
+    {
+
+        Heals -= dmg;
+
+
+    }
+    ///Конец блока нанесение урона
+
+    /// Начало смерть 
+     private void Death()
+       {
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       }
+    /// Конец смерть
+
+
+    // Начало блока тригеров и коллизий
+>>>>>>> 5f61ee9... поправляем
     private void StartAttackTrigger()
     {
-        this.weapon.enabled = true;
+        BoxCollider2D weaponStat = this.weapon.GetComponent<BoxCollider2D>();
+        weaponStat.enabled = true;
     }
 
     private void CompleteAttackTrigger()
     {
-        this.weapon.enabled = false;
+        BoxCollider2D weaponStat = this.weapon.GetComponent<BoxCollider2D>();
+        weaponStat.enabled = false;
         this.anim.ResetTrigger("Attack");
         Debug.Log("end");
     }
@@ -147,6 +245,33 @@ public class CharacterController : MonoBehaviour
     public bool IsAttackStatus()
     {
         return this.anim.GetBool("Attack");
+<<<<<<< HEAD
+=======
+    }
+    void OnCollisionEnter2D(Collision2D coll)
+
+
+    {
+       /* if (coll.gameObject.name == "Khornit")
+          {
+              Enemy im = coll.gameObject.GetComponent<Enemy>();
+              im.Death();
+          }
+        */
+        if (coll.gameObject.tag == "Enemy")
+          {
+           Heals--; // заменил h на H чтобы отнимались сердечки                 
+
+           anim.SetTrigger("Damage_trig");
+           StartCoroutine(Dam(0.2f));
+           
+
+
+
+        }
+
+
+>>>>>>> 5f61ee9... поправляем
     }
 
 	/*void OnCollisionEnter2D(Collision2D coll) 

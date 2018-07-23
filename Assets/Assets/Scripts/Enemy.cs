@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
 using System.Collections;
 
@@ -9,6 +10,19 @@ public class Enemy : MonoBehaviour
 	public Transform MyTransform;
     public Transform target;
 	float myWidth, myHeight;
+=======
+﻿using UnityEngine;
+using System.Collections;
+
+public class Enemy : MonoBehaviour
+{
+    public LayerMask enemyMask;
+    public float speed = 1;
+    public Rigidbody2D myBody;
+    public Transform MyTransform;
+    public Transform target;
+    float myWidth, myHeight;
+>>>>>>> 5f61ee9... поправляем
 
     public int hits = 5;
     public Animator enemyAnimator;
@@ -46,6 +60,7 @@ public class Enemy : MonoBehaviour
 
         //GameObject.rigidbody.freezeRotation = true;
         this.GetComponent<Rigidbody2D>().freezeRotation = true;
+<<<<<<< HEAD
     }
 
     /**
@@ -54,6 +69,18 @@ public class Enemy : MonoBehaviour
 	void FixedUpdate ()
 	{
         if (this.SawHero = this.IsSawEnermy()) {
+=======
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
+    }
+
+    /**
+     * Нужно отрефакторить, простыня кода
+     */
+    void FixedUpdate()
+    {
+        if (this.SawHero = this.IsSawEnemy()) {
+>>>>>>> 5f61ee9... поправляем
             this.isPatrol = false;
 
             this.Range = Vector2.Distance(this.MyTransform.position, this.target.position);
@@ -91,16 +118,25 @@ public class Enemy : MonoBehaviour
         if (this.hits <= 0) {
             this.Death();
         }
+<<<<<<< HEAD
     }
 
     /**
      * Видим героя или нет
      */
     private bool IsSawEnermy()
+=======
+    }
+
+    /**
+     * Видим героя или нет
+     */
+    private bool IsSawEnemy()
+>>>>>>> 5f61ee9... поправляем
     {
         Vector2 SeeLinePosition = this.MyTransform.position.toVector2() - this.MyTransform.right.toVector2() * myWidth + Vector2.up * myHeight;
         Debug.DrawLine(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, Color.green);
-        return Physics2D.Linecast(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, LayerMask.GetMask("Hero"));
+        return Physics2D.Linecast(SeeLinePosition, SeeLinePosition - MyTransform.right.toVector2() * 16f, LayerMask.GetMask("Player"));
     }
 
     /**

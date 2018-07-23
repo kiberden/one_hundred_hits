@@ -34,14 +34,14 @@ public class Khornit : MonoBehaviour {
 		}
 
 	}
-		public void Death ()
+
+	public void Death ()
+	{
+		if (Damage_Khornit)
 		{
-			if (Damage_Khornit)
-			{
-				anim.SetBool ("Damage_Khornit", false);
-				speed = 0;
+			anim.SetBool ("Damage_Khornit", false);
+			speed = 0;
 
-			}
 		}
-
+	}
 }
