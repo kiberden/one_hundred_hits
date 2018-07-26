@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     Animator anim;
     public float dirX, moveSpeed = 5f;
     public int healthPoints = 3;
-    public bool isHurting, isDead;
+    public bool isHurting, isDead, isAttack;
     public bool facingRight = true;
     public Vector3 localScale;
 
@@ -24,8 +24,14 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        if (IsJumpKeyDown() && !isDead && rb.velocity.y == 0)
+        if (IsJumpKeyDown() && !isDead && rb.velocity.y == 0) {
             rb.AddForce(Vector2.up * 600f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !isDead && rb.velocity.y == 0) {
+            SoundManager.PlaySound("playerAttack");
+            isAttack = true;
+        }
 
         SetAnimationState();
 
@@ -52,7 +58,10 @@ public class CharacterController : MonoBehaviour
 
         if (rb.velocity.y == 0) {
             anim.SetBool("IsJump", false);
-            //anim.SetBool("isFalling", false);
+        }
+
+        if (isAttack) {
+            anim.SetBool("IsAttack", true);
         }
 
         if (Mathf.Abs(dirX) == 5 && rb.velocity.y == 0)
@@ -66,6 +75,11 @@ public class CharacterController : MonoBehaviour
         if (rb.velocity.y < 0) {
             anim.SetBool("IsJump", false);
         }
+    }
+
+    void ResetAttack()
+    {
+        anim.SetBool("IsAttack", false);
     }
 
     void CheckWhereToFace()
@@ -83,18 +97,18 @@ public class CharacterController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name.Equals("Fire")) {
-            healthPoints -= 1;
-        }
+        //if (col.gameObject.name.Equals("Fire")) {
+        //    healthPoints -= 1;
+        //}
 
-        if (col.gameObject.name.Equals("Fire") && healthPoints > 0) {
-            anim.SetTrigger("isHurting");
-            StartCoroutine("Hurt");
-        } else {
-            dirX = 0;
-            isDead = true;
-            anim.SetTrigger("isDead");
-        }
+        //if (col.gameObject.name.Equals("Fire") && healthPoints > 0) {
+        //    anim.SetTrigger("isHurting");
+        //    StartCoroutine("Hurt");
+        //} else {
+        //    dirX = 0;
+        //    isDead = true;
+        //    anim.SetTrigger("isDead");
+        //}
     }
 
     IEnumerator Hurt()
